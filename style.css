@@ -11,8 +11,8 @@ body {
     align-items: center;
     padding: 10px;
     margin: 0;
-    height: 100%;
-    width: 50px;
+    height: 33px;
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -92,5 +92,6 @@ html {
 
     background-color: #000000;
     transform: scale(1.2);
+
 
 }
