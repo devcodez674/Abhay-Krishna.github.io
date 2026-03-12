@@ -9,14 +9,13 @@
 :root{
   --bg:#02040a;--c1:#00ffe7;--c2:#ff003c;--c3:#ffe600;
   --border:rgba(0,255,231,.12);--text:#a8c8d8;--muted:#3a5a6a;
-  --glow1:0 0 30px rgba(0,255,231,.4);--glow2:0 0 30px rgba(255,0,60,.4);
+  --g1:0 0 30px rgba(0,255,231,.4);--g2:0 0 30px rgba(255,0,60,.4);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;overflow-x:hidden;cursor:none}
- 
 #cur{position:fixed;width:8px;height:8px;background:var(--c1);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:screen;transition:transform .08s,background .15s}
-#cur2{position:fixed;width:32px;height:32px;border:1px solid var(--c1);border-radius:50%;pointer-events:none;z-index:9998;opacity:.5;transition:border-color .2s,transform .1s}
+#cur2{position:fixed;width:32px;height:32px;border:1px solid var(--c1);border-radius:50%;pointer-events:none;z-index:9998;opacity:.5;transition:border-color .2s}
 #bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none}
  
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:.9rem 4rem;background:rgba(2,4,10,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
@@ -32,11 +31,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .hero::before{content:'';position:absolute;top:-100px;right:15%;width:1px;height:120vh;background:linear-gradient(180deg,transparent,var(--c1),transparent);opacity:.18;transform:rotate(15deg)}
 .hero::after{content:'';position:absolute;top:-100px;right:28%;width:1px;height:120vh;background:linear-gradient(180deg,transparent,var(--c2),transparent);opacity:.1;transform:rotate(15deg)}
 .hero-content{position:relative;z-index:10;max-width:700px}
- 
 .eyebrow{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:5px;color:var(--c2);text-transform:uppercase;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fadeUp .6s .2s ease forwards}
-.pdot{width:8px;height:8px;border-radius:50%;background:var(--c2);box-shadow:var(--glow2);animation:pdot 1.5s ease-in-out infinite}
+.pdot{width:8px;height:8px;border-radius:50%;background:var(--c2);box-shadow:var(--g2);animation:pdot 1.5s ease-in-out infinite}
 @keyframes pdot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(2);opacity:.3}}
- 
 .hname{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,9rem);line-height:.88;letter-spacing:4px;color:#fff;margin-bottom:.35rem;opacity:0;animation:fadeUp .7s .35s ease forwards}
 .glitch{position:relative;color:var(--c1);text-shadow:0 0 40px var(--c1);display:inline-block;animation:glitch 5s infinite}
 @keyframes glitch{
@@ -53,16 +50,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
  
 .btn{font-family:'Share Tech Mono',monospace;font-size:.78rem;letter-spacing:3px;text-transform:uppercase;padding:.9rem 2.2rem;text-decoration:none;cursor:none;display:inline-block;transition:all .22s;border:none}
 .btn-neon{background:transparent;color:var(--c1);border:1px solid var(--c1)}
-.btn-neon:hover{background:var(--c1);color:#000;box-shadow:var(--glow1);transform:translateY(-2px)}
+.btn-neon:hover{background:var(--c1);color:#000;box-shadow:var(--g1);transform:translateY(-2px)}
 .btn-fire{background:var(--c2);color:#fff;border:1px solid var(--c2)}
-.btn-fire:hover{box-shadow:var(--glow2);transform:translateY(-2px)}
+.btn-fire:hover{box-shadow:var(--g2);transform:translateY(-2px)}
  
-.hero-term{position:absolute;right:5%;top:50%;transform:translateY(-50%);background:rgba(1,3,8,.95);border:1px solid var(--border);width:340px;box-shadow:var(--glow1),0 40px 80px rgba(0,0,0,.7);opacity:0;animation:slideIn .8s .9s ease forwards;z-index:10}
+.hero-term{position:absolute;right:5%;top:50%;transform:translateY(-50%);background:rgba(1,3,8,.95);border:1px solid var(--border);width:340px;box-shadow:var(--g1),0 40px 80px rgba(0,0,0,.7);opacity:0;animation:slideIn .8s .9s ease forwards;z-index:10}
 @keyframes slideIn{from{opacity:0;transform:translateY(-50%) translateX(40px)}to{opacity:1;transform:translateY(-50%) translateX(0)}}
 .tbar{display:flex;align-items:center;gap:.5rem;padding:.6rem 1rem;background:rgba(0,255,231,.04);border-bottom:1px solid var(--border)}
 .tbar .d{width:10px;height:10px;border-radius:50%}
 .tbar .d:nth-child(1){background:#ff5f57}.tbar .d:nth-child(2){background:#febc2e}.tbar .d:nth-child(3){background:#28c840}
-.ttitle{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--muted);margin-left:auto;letter-spacing:1px}
+.ttitle{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--muted);margin-left:auto}
 .tbody{padding:1.2rem;font-family:'Share Tech Mono',monospace;font-size:.72rem;line-height:2}
 .tg{color:#28c840}.tc{color:var(--c1)}.tr{color:var(--c2)}.ty{color:var(--c3)}.tm{color:var(--muted)}
 .tcur{display:inline-block;width:8px;height:1em;background:var(--c1);animation:blink 1s step-end infinite;vertical-align:text-bottom}
@@ -71,49 +68,42 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .sw{position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:7rem 4rem}
 .sh{display:flex;align-items:center;gap:1.2rem;margin-bottom:4rem}
 .sn{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--c1);letter-spacing:2px;opacity:.6}
-.st{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;color:#fff;text-transform:uppercase}
+.st{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;color:#fff}
 .sl{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
  
-/* ABOUT */
 .abg{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .atext p{margin-bottom:1.1rem;line-height:1.9;font-size:1rem}
 .atext strong{color:var(--c1)}
 .skgrid{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
 .sk{font-family:'Share Tech Mono',monospace;font-size:.7rem;padding:.55rem .8rem;border:1px solid var(--border);color:var(--muted);transition:all .2s;display:flex;align-items:center;gap:.5rem}
 .sk::before{content:'▸';color:var(--c1);font-size:.55rem;flex-shrink:0}
-.sk:hover{border-color:var(--c1);color:var(--c1);background:rgba(0,255,231,.04);box-shadow:var(--glow1);transform:translateX(4px)}
+.sk:hover{border-color:var(--c1);color:var(--c1);background:rgba(0,255,231,.04);box-shadow:var(--g1);transform:translateX(4px)}
  
-/* AVAILABILITY */
 .avail-wrap{display:flex;gap:1rem;flex-wrap:wrap}
-.month-block{flex:1;min-width:120px;border:1px solid var(--border);padding:1rem 1.2rem;transition:border-color .25s}
-.month-block.open{border-color:rgba(0,255,231,.35)}
-.month-block.limited{border-color:rgba(255,230,0,.25)}
-.month-name{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:.5rem}
-.month-block.open .month-name{color:var(--c1)}
-.month-block.limited .month-name{color:var(--c3)}
-.month-days{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:#fff;margin-bottom:.25rem}
-.month-block.open .month-days{color:var(--c1);text-shadow:var(--glow1)}
-.month-block.limited .month-days{color:var(--c3)}
-.month-note{font-size:.75rem;color:var(--muted);line-height:1.4}
-.avail-note{margin-top:1.2rem;font-size:.85rem;color:var(--muted);line-height:1.7;font-style:italic}
+.mb{flex:1;min-width:120px;border:1px solid var(--border);padding:1rem 1.2rem}
+.mb.open{border-color:rgba(0,255,231,.35)}
+.mb.ltd{border-color:rgba(255,230,0,.25)}
+.mn{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:.5rem}
+.mb.open .mn{color:var(--c1)}.mb.ltd .mn{color:var(--c3)}
+.md{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:#fff;margin-bottom:.25rem}
+.mb.open .md{color:var(--c1);text-shadow:var(--g1)}.mb.ltd .md{color:var(--c3)}
+.mk{font-size:.75rem;color:var(--muted)}
+.an{margin-top:1.2rem;font-size:.85rem;color:var(--muted);line-height:1.7;font-style:italic}
  
-/* SERVICES */
 .svb{background:rgba(0,255,231,.012);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .svg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .svc{background:rgba(2,4,10,.85);border:1px solid var(--border);padding:2.2rem 1.8rem;position:relative;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;cursor:none}
 .svc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .svc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,255,231,.05),transparent 70%);opacity:0;transition:opacity .3s}
-.svc:hover{transform:translateY(-6px);border-color:rgba(0,255,231,.3);box-shadow:0 20px 60px rgba(0,0,0,.4),var(--glow1)}
-.svc:hover::before{transform:scaleX(1)}
-.svc:hover::after{opacity:1}
+.svc:hover{transform:translateY(-6px);border-color:rgba(0,255,231,.3);box-shadow:0 20px 60px rgba(0,0,0,.4),var(--g1)}
+.svc:hover::before{transform:scaleX(1)}.svc:hover::after{opacity:1}
 .sico{font-size:2.2rem;margin-bottom:1rem;display:block}
 .snm{font-family:'Bebas Neue',sans-serif;letter-spacing:3px;font-size:1.05rem;color:var(--c1);margin-bottom:.6rem}
 .sds{font-size:.88rem;color:var(--muted);line-height:1.7}
  
-/* CODE */
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.ccard{background:#010306;border:1px solid var(--border);overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .2s}
-.ccard:hover{border-color:rgba(0,255,231,.4);box-shadow:var(--glow1),0 30px 60px rgba(0,0,0,.5)}
+.ccard{background:#010306;border:1px solid var(--border);overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.ccard:hover{border-color:rgba(0,255,231,.4);box-shadow:var(--g1),0 30px 60px rgba(0,0,0,.5)}
 .ctop{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;background:rgba(0,255,231,.03);border-bottom:1px solid var(--border)}
 .dots{display:flex;gap:.4rem}
 .dots span{width:10px;height:10px;border-radius:50%}
@@ -126,25 +116,23 @@ pre::-webkit-scrollbar-thumb{background:var(--border)}
 .kw{color:#ff79c6}.fn{color:#50fa7b}.str{color:#f1fa8c}.num{color:#bd93f9}.cm{color:#3d5a70;font-style:italic}.var{color:#8be9fd}.prop{color:#ffb86c}.op{color:#ff79c6}
 .cfoot{padding:.9rem 1rem;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted);line-height:1.5}
  
-/* PRICING */
 .pw{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
 .pcard{background:rgba(2,4,10,.92);border:1px solid var(--border);padding:3rem 2.5rem;min-width:280px;text-align:center;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.pcard.feat{border-color:rgba(0,255,231,.4);box-shadow:var(--glow1),0 0 80px rgba(0,255,231,.06)}
-.pcard:hover{transform:translateY(-8px);box-shadow:0 30px 80px rgba(0,0,0,.5),var(--glow1)}
-.pcard .fg{position:absolute;inset:-1px;background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c1));background-size:300%;z-index:-1;animation:bgspin 4s linear infinite;opacity:0}
+.pcard.feat{border-color:rgba(0,255,231,.4);box-shadow:var(--g1),0 0 80px rgba(0,255,231,.06)}
+.pcard:hover{transform:translateY(-8px);box-shadow:0 30px 80px rgba(0,0,0,.5),var(--g1)}
+.fg{position:absolute;inset:-1px;background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c1));background-size:300%;z-index:-1;animation:bgspin 4s linear infinite;opacity:0}
 .pcard.feat .fg{opacity:1}
 @keyframes bgspin{0%{background-position:0%}100%{background-position:300%}}
-.pcard .fi{position:absolute;inset:1px;background:rgba(2,4,10,.97);z-index:-1}
+.fi{position:absolute;inset:1px;background:rgba(2,4,10,.97);z-index:-1}
 .flbl{position:absolute;top:0;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--c1),var(--c2));color:#000;font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:3px;padding:.25rem 1.2rem;font-weight:700}
 .ptier{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:1.5rem}
-.pbig{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:var(--c1);text-shadow:var(--glow1);margin-bottom:.2rem}
+.pbig{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:var(--c1);text-shadow:var(--g1);margin-bottom:.2rem}
 .pbig sup{font-size:2rem;vertical-align:top;margin-top:.8rem}
 .pnote{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:2px;margin-bottom:2rem}
 .plist{list-style:none;text-align:left;margin-bottom:2rem}
 .plist li{padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.88rem;display:flex;align-items:center;gap:.6rem}
 .plist li::before{content:'⬡';color:var(--c1);font-size:.65rem;flex-shrink:0}
  
-/* ALSO */
 .also-intro{font-size:1rem;line-height:1.85;color:var(--text);max-width:560px;margin-bottom:3rem}
 .also-intro em{color:var(--c1);font-style:normal}
 .also-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -159,7 +147,6 @@ pre::-webkit-scrollbar-thumb{background:var(--border)}
 .also-card:hover .tag{border-color:rgba(0,255,231,.2);color:rgba(0,255,231,.5)}
 .also-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
  
-/* CONTACT */
 .cntg{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .cintro{font-size:1rem;line-height:1.9;margin-bottom:2rem}
 .clinks{display:flex;flex-direction:column;gap:.8rem}
@@ -171,10 +158,10 @@ pre::-webkit-scrollbar-thumb{background:var(--border)}
 .cform{display:flex;flex-direction:column;gap:1rem}
 .flbl{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:.3rem}
 .finp,.ftxt{width:100%;background:rgba(0,255,231,.015);border:1px solid var(--border);color:var(--text);padding:.85rem 1rem;font-family:'Exo 2',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s,box-shadow .2s;cursor:none}
-.finp:focus,.ftxt:focus{border-color:var(--c1);box-shadow:var(--glow1)}
+.finp:focus,.ftxt:focus{border-color:var(--c1);box-shadow:var(--g1)}
 .ftxt{resize:vertical;min-height:110px;line-height:1.6}
+#formMsg{font-family:'Share Tech Mono',monospace;font-size:.7rem;text-align:center;margin-top:.5rem;min-height:1.2rem;transition:color .2s}
  
-/* MARQUEE */
 .marq{overflow:hidden;padding:.9rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(0,255,231,.012);position:relative;z-index:10}
 .mtrack{display:flex;gap:2.5rem;white-space:nowrap;animation:marqA 22s linear infinite;font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
 .mtrack .hi{color:var(--c1)}
@@ -182,7 +169,7 @@ pre::-webkit-scrollbar-thumb{background:var(--border)}
  
 footer{position:relative;z-index:10;padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--muted);letter-spacing:1px}
-.flogo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:4px;color:var(--c1);text-shadow:var(--glow1)}
+.flogo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:4px;color:var(--c1);text-shadow:var(--g1)}
  
 .rev{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .rev.on{opacity:1;transform:translateY(0)}
@@ -221,7 +208,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
   </ul>
 </nav>
  
-<!-- HERO -->
 <div class="hero" id="home">
   <div class="hero-content">
     <div class="eyebrow"><span class="pdot"></span>taking commissions &middot; from $20</div>
@@ -233,7 +219,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
       <a href="#showcase" class="btn btn-neon">See My Work</a>
     </div>
   </div>
- 
   <div class="hero-term">
     <div class="tbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="ttitle">abhay@roblox ~ terminal</span></div>
     <div class="tbody">
@@ -259,7 +244,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
   </div>
 </div>
  
-<!-- ABOUT -->
 <div id="about" style="position:relative;z-index:10">
 <div class="sw">
   <div class="sh rev"><span class="sn">01</span><h2 class="st">About Me</h2><div class="sl"></div></div>
@@ -284,37 +268,19 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
 </div>
 </div>
  
-<!-- AVAILABILITY -->
 <div id="availability" style="position:relative;z-index:10;background:rgba(0,255,231,.008);border-top:1px solid var(--border)">
 <div class="sw" style="padding-top:4rem;padding-bottom:4rem">
   <div class="sh rev"><span class="sn">01.5</span><h2 class="st">Availability</h2><div class="sl"></div></div>
   <div class="avail-wrap rev">
-    <div class="month-block open">
-      <div class="month-name">April</div>
-      <div class="month-days">30</div>
-      <div class="month-note">days open</div>
-    </div>
-    <div class="month-block open">
-      <div class="month-name">May</div>
-      <div class="month-days">30</div>
-      <div class="month-note">days open</div>
-    </div>
-    <div class="month-block limited">
-      <div class="month-name">September</div>
-      <div class="month-days">10</div>
-      <div class="month-note">days only</div>
-    </div>
-    <div class="month-block limited">
-      <div class="month-name">December</div>
-      <div class="month-days">20</div>
-      <div class="month-note">days only</div>
-    </div>
+    <div class="mb open"><div class="mn">April</div><div class="md">30</div><div class="mk">days open</div></div>
+    <div class="mb open"><div class="mn">May</div><div class="md">30</div><div class="mk">days open</div></div>
+    <div class="mb ltd"><div class="mn">September</div><div class="md">10</div><div class="mk">days only</div></div>
+    <div class="mb ltd"><div class="mn">December</div><div class="md">20</div><div class="mk">days only</div></div>
   </div>
-  <p class="avail-note rev">Around 90 days a year total. Outside these windows I&rsquo;m not taking new work &mdash; so if you&rsquo;re planning something, reach out early.</p>
+  <p class="an rev">Around 90 days a year total. Outside these windows I&rsquo;m not taking new work &mdash; so if you&rsquo;re planning something, reach out early.</p>
 </div>
 </div>
  
-<!-- SERVICES -->
 <div id="services" class="svb" style="position:relative;z-index:10">
 <div class="sw">
   <div class="sh rev"><span class="sn">02</span><h2 class="st">Services</h2><div class="sl"></div></div>
@@ -329,7 +295,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
 </div>
 </div>
  
-<!-- CODE SHOWCASE -->
 <div id="showcase" style="position:relative;z-index:10">
 <div class="sw">
   <div class="sh rev"><span class="sn">03</span><h2 class="st">Code Showcase</h2><div class="sl"></div></div>
@@ -372,7 +337,7 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
   <span class="kw">end</span>
 <span class="kw">end</span>
 <span class="kw">return</span> <span class="var">Combat</span></code></pre>
-      <div class="cfoot">&#9876;&#65039; Dynamic combo damage with spatial hitboxes &mdash; smooth and expandable.</div>
+      <div class="cfoot">Combo damage scaling with spatial hitboxes &mdash; smooth and expandable.</div>
     </div>
  
     <div class="ccard rev" style="transition-delay:.1s">
@@ -382,20 +347,17 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
 <span class="kw">local</span> <span class="var">Plrs</span>  = <span class="fn">game</span>:<span class="fn">GetService</span>(<span class="str">"Players"</span>)
 <span class="kw">local</span> <span class="var">Store</span> = <span class="var">DSS</span>:<span class="fn">GetDataStore</span>(<span class="str">"PlayerData_v3"</span>)
 <span class="kw">local</span> <span class="var">cache</span> = {}
- 
 <span class="kw">local</span> <span class="var">DEFAULT</span> = {
   <span class="prop">coins</span>=<span class="num">0</span>, <span class="prop">level</span>=<span class="num">1</span>, <span class="prop">xp</span>=<span class="num">0</span>,
   <span class="prop">inventory</span>={},
   <span class="prop">stats</span>={<span class="prop">kills</span>=<span class="num">0</span>,<span class="prop">deaths</span>=<span class="num">0</span>}
 }
- 
 <span class="kw">local function</span> <span class="fn">deepCopy</span>(<span class="var">t</span>)
   <span class="kw">local</span> <span class="var">c</span>={}
   <span class="kw">for</span> <span class="var">k</span>,<span class="var">v</span> <span class="kw">in</span> <span class="fn">pairs</span>(<span class="var">t</span>) <span class="kw">do</span>
     <span class="var">c</span>[<span class="var">k</span>]=<span class="fn">type</span>(<span class="var">v</span>)==<span class="str">"table"</span> <span class="kw">and</span> <span class="fn">deepCopy</span>(<span class="var">v</span>) <span class="kw">or</span> <span class="var">v</span>
   <span class="kw">end</span>; <span class="kw">return</span> <span class="var">c</span>
 <span class="kw">end</span>
- 
 <span class="kw">local function</span> <span class="fn">Load</span>(<span class="var">p</span>)
   <span class="kw">local</span> <span class="var">ok</span>,<span class="var">d</span>=<span class="fn">pcall</span>(<span class="kw">function</span>()
     <span class="kw">return</span> <span class="var">Store</span>:<span class="fn">GetAsync</span>(<span class="str">"u_"</span>..<span class="var">p</span>.UserId)
@@ -406,7 +368,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
     <span class="var">p</span>:<span class="fn">Kick</span>(<span class="str">"Data load failed."</span>)
   <span class="kw">end</span>
 <span class="kw">end</span>
- 
 <span class="kw">local function</span> <span class="fn">Save</span>(<span class="var">p</span>)
   <span class="kw">local</span> <span class="var">d</span>=<span class="var">cache</span>[<span class="var">p</span>.UserId]
   <span class="kw">if</span> <span class="var">d</span> <span class="kw">then</span>
@@ -416,10 +377,9 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
     <span class="var">cache</span>[<span class="var">p</span>.UserId]=<span class="kw">nil</span>
   <span class="kw">end</span>
 <span class="kw">end</span>
- 
 <span class="var">Plrs</span>.PlayerAdded:<span class="fn">Connect</span>(<span class="var">Load</span>)
 <span class="var">Plrs</span>.PlayerRemoving:<span class="fn">Connect</span>(<span class="var">Save</span>)</code></pre>
-      <div class="cfoot">&#128190; pcall-protected saves with deep copy defaults &mdash; data that never corrupts.</div>
+      <div class="cfoot">pcall-protected saves with deep copy defaults &mdash; data that never corrupts.</div>
     </div>
  
     <div class="ccard rev" style="transition-delay:.05s">
@@ -429,14 +389,12 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
 <span class="kw">local</span> <span class="var">AGGRO</span> = <span class="num">30</span>
 <span class="kw">local</span> <span class="var">AI</span> = {}
 <span class="var">AI</span>.__index = <span class="var">AI</span>
- 
 <span class="kw">function</span> <span class="fn">AI</span>.<span class="fn">new</span>(<span class="var">npc</span>,<span class="var">wps</span>)
   <span class="kw">return</span> <span class="fn">setmetatable</span>({
     <span class="prop">npc</span>=<span class="var">npc</span>, <span class="prop">waypoints</span>=<span class="var">wps</span>,
     <span class="prop">state</span>=<span class="str">"patrol"</span>, <span class="prop">target</span>=<span class="kw">nil</span>
   }, <span class="var">AI</span>)
 <span class="kw">end</span>
- 
 <span class="kw">function</span> <span class="fn">AI</span>:<span class="fn">Scan</span>()
   <span class="kw">local</span> <span class="var">pos</span>=<span class="var">self</span>.<span class="prop">npc</span>.HumanoidRootPart.Position
   <span class="kw">for</span> _,<span class="var">p</span> <span class="kw">in</span> <span class="fn">game</span>.Players:<span class="fn">GetPlayers</span>() <span class="kw">do</span>
@@ -447,7 +405,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
     <span class="kw">end</span>
   <span class="kw">end</span>
 <span class="kw">end</span>
- 
 <span class="kw">function</span> <span class="fn">AI</span>:<span class="fn">Chase</span>(<span class="var">tgt</span>)
   <span class="kw">local</span> <span class="var">path</span>=<span class="var">PFS</span>:<span class="fn">CreatePath</span>({AgentRadius=<span class="num">2</span>})
   <span class="var">path</span>:<span class="fn">ComputeAsync</span>(
@@ -459,7 +416,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
     <span class="var">self</span>.<span class="prop">npc</span>.Humanoid.MoveToFinished:<span class="fn">Wait</span>()
   <span class="kw">end</span>
 <span class="kw">end</span>
- 
 <span class="kw">function</span> <span class="fn">AI</span>:<span class="fn">Tick</span>()
   <span class="var">self</span>.<span class="prop">target</span>=<span class="var">self</span>:<span class="fn">Scan</span>()
   <span class="kw">if</span> <span class="var">self</span>.<span class="prop">target</span> <span class="kw">then</span>
@@ -470,7 +426,7 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
   <span class="kw">end</span>
 <span class="kw">end</span>
 <span class="kw">return</span> <span class="var">AI</span></code></pre>
-      <div class="cfoot">&#129302; State machine &mdash; idles, patrols, detects players, chases with real pathfinding.</div>
+      <div class="cfoot">State machine &mdash; patrols, detects players, chases with real pathfinding.</div>
     </div>
  
     <div class="ccard rev" style="transition-delay:.15s">
@@ -481,7 +437,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
 <span class="kw">local</span> <span class="var">IN</span>  = <span class="fn">TweenInfo</span>.new(<span class="num">.35</span>,<span class="fn">Enum</span>.EasingStyle.Back)
 <span class="kw">local</span> <span class="var">OUT</span> = <span class="fn">TweenInfo</span>.new(<span class="num">.25</span>,<span class="fn">Enum</span>.EasingStyle.Quad)
 <span class="kw">local</span> <span class="var">UI</span>  = {}
- 
 <span class="kw">function</span> <span class="fn">UI</span>.<span class="fn">Notify</span>(<span class="var">msg</span>,<span class="var">color</span>,<span class="var">dur</span>)
   <span class="kw">local</span> <span class="var">gui</span>=<span class="var">plr</span>.PlayerGui:<span class="fn">FindFirstChild</span>(<span class="str">"Notify"</span>)
   <span class="kw">if not</span> <span class="var">gui</span> <span class="kw">then return</span> <span class="kw">end</span>
@@ -490,35 +445,26 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
   <span class="var">n</span>.Frame.BackgroundColor3=<span class="var">color</span>
   <span class="var">n</span>.Parent=<span class="var">gui</span>.Stack
   <span class="var">n</span>.Position=<span class="fn">UDim2</span>.new(<span class="num">1.2</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>)
-  <span class="var">TS</span>:<span class="fn">Create</span>(<span class="var">n</span>,<span class="var">IN</span>,{
-    Position=<span class="fn">UDim2</span>.new(<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>)
-  }):<span class="fn">Play</span>()
+  <span class="var">TS</span>:<span class="fn">Create</span>(<span class="var">n</span>,<span class="var">IN</span>,{Position=<span class="fn">UDim2</span>.new(<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>)}):<span class="fn">Play</span>()
   <span class="fn">task</span>.<span class="fn">delay</span>(<span class="var">dur</span> <span class="kw">or</span> <span class="num">3</span>,<span class="kw">function</span>()
     <span class="kw">local</span> <span class="var">t</span>=<span class="var">TS</span>:<span class="fn">Create</span>(<span class="var">n</span>,<span class="var">OUT</span>,{
-      Position=<span class="fn">UDim2</span>.new(<span class="op">-</span><span class="num">1.2</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>)
-    })
+      Position=<span class="fn">UDim2</span>.new(<span class="op">-</span><span class="num">1.2</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>)})
     <span class="var">t</span>:<span class="fn">Play</span>()
-    <span class="var">t</span>.Completed:<span class="fn">Connect</span>(<span class="kw">function</span>()
-      <span class="var">n</span>:<span class="fn">Destroy</span>()
-    <span class="kw">end</span>)
+    <span class="var">t</span>.Completed:<span class="fn">Connect</span>(<span class="kw">function</span>() <span class="var">n</span>:<span class="fn">Destroy</span>() <span class="kw">end</span>)
   <span class="kw">end</span>)
 <span class="kw">end</span>
- 
 <span class="kw">function</span> <span class="fn">UI</span>.<span class="fn">SetHealth</span>(<span class="var">hp</span>,<span class="var">max</span>)
   <span class="kw">local</span> <span class="var">bar</span>=<span class="var">plr</span>.PlayerGui.HUD.HealthBar
-  <span class="var">TS</span>:<span class="fn">Create</span>(<span class="var">bar</span>,<span class="var">IN</span>,{
-    Size=<span class="fn">UDim2</span>.new(<span class="var">hp</span>/<span class="var">max</span>,<span class="num">0</span>,<span class="num">1</span>,<span class="num">0</span>)
-  }):<span class="fn">Play</span>()
+  <span class="var">TS</span>:<span class="fn">Create</span>(<span class="var">bar</span>,<span class="var">IN</span>,{Size=<span class="fn">UDim2</span>.new(<span class="var">hp</span>/<span class="var">max</span>,<span class="num">0</span>,<span class="num">1</span>,<span class="num">0</span>)}):<span class="fn">Play</span>()
 <span class="kw">end</span>
 <span class="kw">return</span> <span class="var">UI</span></code></pre>
-      <div class="cfoot">&#128421;&#65039; Slide-in/out notifications with Back easing + live health bar tweening.</div>
+      <div class="cfoot">Slide-in/out notifications with Back easing + live health bar tweening.</div>
     </div>
  
   </div>
 </div>
 </div>
  
-<!-- PRICING -->
 <div id="pricing" class="svb" style="position:relative;z-index:10">
 <div class="sw">
   <div class="sh rev"><span class="sn">04</span><h2 class="st">Pricing</h2><div class="sl"></div></div>
@@ -538,7 +484,7 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
     </div>
     <div class="pcard feat rev" style="transition-delay:.1s">
       <div class="fg"></div><div class="fi"></div>
-      <div class="flbl">&#9733; POPULAR</div>
+      <div class="flbl">POPULAR</div>
       <div class="ptier" style="margin-top:1.2rem">Pro</div>
       <div class="pbig"><sup>$</sup>20<span style="font-size:1.5rem;color:var(--muted)">+</span></div>
       <div class="pnote">Custom Quote &middot; Negotiable</div>
@@ -558,7 +504,6 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
 </div>
 </div>
  
-<!-- NOT JUST ROBLOX -->
 <div id="also" style="position:relative;z-index:10;border-top:1px solid var(--border)">
 <div class="sw">
   <div class="sh rev"><span class="sn">04.5</span><h2 class="st">Not Just Roblox</h2><div class="sl"></div></div>
@@ -567,32 +512,25 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
     <div class="also-card rev">
       <span class="also-icon">&#127760;</span>
       <div class="also-name">Web Dev</div>
-      <div class="also-tags">
-        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span>
-      </div>
+      <div class="also-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span></div>
       <p class="also-desc">Built sites from scratch. Layouts, animations, APIs &mdash; comfortable making things look good and work properly.</p>
     </div>
     <div class="also-card rev" style="transition-delay:.08s">
       <span class="also-icon">&#128268;</span>
       <div class="also-name">Embedded Systems</div>
-      <div class="also-tags">
-        <span class="tag">C / C++</span><span class="tag">Arduino</span><span class="tag">Microcontrollers</span><span class="tag">Serial</span>
-      </div>
-      <p class="also-desc">Low-level hardware programming &mdash; sensors, controllers, real-time logic. A different world from game dev but the thinking transfers.</p>
+      <div class="also-tags"><span class="tag">C / C++</span><span class="tag">Arduino</span><span class="tag">Microcontrollers</span><span class="tag">Serial</span></div>
+      <p class="also-desc">Low-level hardware programming &mdash; sensors, controllers, real-time logic. Different world from game dev but the thinking transfers.</p>
     </div>
     <div class="also-card rev" style="transition-delay:.16s">
       <span class="also-icon">&#9881;&#65039;</span>
       <div class="also-name">General Programming</div>
-      <div class="also-tags">
-        <span class="tag">Python</span><span class="tag">Logic</span><span class="tag">Algorithms</span><span class="tag">Problem Solving</span>
-      </div>
+      <div class="also-tags"><span class="tag">Python</span><span class="tag">Logic</span><span class="tag">Algorithms</span><span class="tag">Problem Solving</span></div>
       <p class="also-desc">Scripting, automation, data wrangling. I know how to think through a problem regardless of what language it&rsquo;s in.</p>
     </div>
   </div>
 </div>
 </div>
  
-<!-- CONTACT -->
 <div id="contact" style="position:relative;z-index:10;border-top:1px solid var(--border)">
 <div class="sw">
   <div class="sh rev"><span class="sn">05</span><h2 class="st">Get In Touch</h2><div class="sl"></div></div>
@@ -600,16 +538,17 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
     <div class="rev">
       <p class="cintro">Check the availability window first, then reach out. I usually reply same day on Discord. Tell me what you need and we&rsquo;ll go from there.</p>
       <div class="clinks">
-        <a href="mailto:devcodez456&#64;gmail.com" class="clink"><span class="cico">&#128231;</span>devcodez456&#64;gmail.com</a>
+        <a href="mailto:devcodez456@gmail.com" class="clink"><span class="cico">&#128231;</span>devcodez456@gmail.com</a>
         <a href="https://discord.com/users/communistcat" target="_blank" class="clink"><span class="cico">&#128172;</span>Discord: communistcat</a>
         <a href="https://github.com/devcodez674" target="_blank" class="clink"><span class="cico">&#128025;</span>GitHub: devcodez674</a>
       </div>
     </div>
     <div class="cform rev" style="transition-delay:.1s">
-      <div><label class="flbl">Your Name</label><input type="text" class="finp" placeholder="John Doe"></div>
-      <div><label class="flbl">Discord / Contact</label><input type="text" class="finp" placeholder="username"></div>
-      <div><label class="flbl">What do you need?</label><textarea class="ftxt" placeholder="Describe your project &mdash; game type, features, deadline, budget..."></textarea></div>
-      <button class="btn btn-neon" style="width:100%;font-size:.82rem" onclick="alert('For fastest response, DM on Discord: communistcat')">Send Commission Request &#8594;</button>
+      <div><label class="flbl">Your Name</label><input type="text" class="finp" id="fname" placeholder="John Doe"></div>
+      <div><label class="flbl">Discord / Contact</label><input type="text" class="finp" id="fcontact" placeholder="username"></div>
+      <div><label class="flbl">What do you need?</label><textarea class="ftxt" id="fdesc" placeholder="Game type, features, deadline, budget..."></textarea></div>
+      <button class="btn btn-neon" id="submitBtn" style="width:100%;font-size:.82rem">Send Commission Request &#8594;</button>
+      <div id="formMsg"></div>
     </div>
   </div>
 </div>
@@ -622,10 +561,12 @@ footer p{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--mu
 </footer>
  
 <script>
+(function(){
+ 
 // CURSOR
-const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
+var cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){
   mx=e.clientX;my=e.clientY;
   cur.style.left=(mx-4)+'px';cur.style.top=(my-4)+'px';
 });
@@ -634,91 +575,154 @@ document.addEventListener('mousemove',e=>{
   cur2.style.left=rx+'px';cur2.style.top=ry+'px';
   requestAnimationFrame(loop);
 })();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.transform='scale(3)';cur2.style.transform='scale(1.4)';cur.style.background='var(--c2)';cur2.style.borderColor='var(--c2)'});
-  el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';cur2.style.transform='scale(1)';cur.style.background='var(--c1)';cur2.style.borderColor='var(--c1)'});
+document.querySelectorAll('a,button').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cur.style.transform='scale(3)';cur2.style.transform='scale(1.4)';cur.style.background='#ff003c';cur2.style.borderColor='#ff003c'});
+  el.addEventListener('mouseleave',function(){cur.style.transform='scale(1)';cur2.style.transform='scale(1)';cur.style.background='#00ffe7';cur2.style.borderColor='#00ffe7'});
 });
  
-// PARTICLE CANVAS
-const canvas=document.getElementById('bgCanvas'),ctx=canvas.getContext('2d');
-let W,H;
-const COLS=['#00ffe7','#ff003c','#ffe600','#00ffe7','#00ffe7'];
+// PARTICLES
+var canvas=document.getElementById('bgCanvas'),ctx=canvas.getContext('2d');
+var W,H;
+var COLS=['#00ffe7','#ff003c','#ffe600','#00ffe7','#00ffe7'];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
 resize();window.addEventListener('resize',resize);
-class P{
-  constructor(first){
-    this.x=Math.random()*W;
-    this.y=first?Math.random()*H:-10;
-    this.vy=.4+Math.random()*1.4;
-    this.vx=(Math.random()-.5)*.4;
-    this.r=.5+Math.random()*1.5;
-    this.col=COLS[Math.floor(Math.random()*COLS.length)];
-    this.a=.08+Math.random()*.4;
-  }
-  tick(){this.y+=this.vy;this.x+=this.vx;if(this.y>H+10){this.y=-10;this.x=Math.random()*W}}
-  draw(){
-    ctx.save();ctx.globalAlpha=this.a;
-    ctx.fillStyle=this.col;ctx.shadowColor=this.col;ctx.shadowBlur=8;
-    ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();
-    ctx.restore();
-  }
+function Particle(){
+  this.x=Math.random()*W;
+  this.y=Math.random()*H;
+  this.vy=.4+Math.random()*1.4;
+  this.vx=(Math.random()-.5)*.4;
+  this.r=.5+Math.random()*1.5;
+  this.col=COLS[Math.floor(Math.random()*COLS.length)];
+  this.a=.08+Math.random()*.4;
 }
-const pts=Array.from({length:200},(_,i)=>new P(true));
-let mpx=innerWidth/2,mpy=innerHeight/2;
-document.addEventListener('mousemove',e=>{mpx=e.clientX;mpy=e.clientY});
-function grid(){
+Particle.prototype.tick=function(){
+  this.y+=this.vy;this.x+=this.vx;
+  if(this.y>H+10){this.y=-10;this.x=Math.random()*W}
+};
+Particle.prototype.draw=function(){
+  ctx.save();ctx.globalAlpha=this.a;
+  ctx.fillStyle=this.col;ctx.shadowColor=this.col;ctx.shadowBlur=8;
+  ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();
+  ctx.restore();
+};
+var pts=[];for(var i=0;i<200;i++)pts.push(new Particle());
+var mpx=500,mpy=300;
+document.addEventListener('mousemove',function(e){mpx=e.clientX;mpy=e.clientY});
+function drawGrid(){
   ctx.strokeStyle='rgba(0,255,231,0.025)';ctx.lineWidth=1;
-  const s=65;
-  for(let x=0;x<W;x+=s){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
-  for(let y=0;y<H;y+=s){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+  var s=65;
+  for(var x=0;x<W;x+=s){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+  for(var y=0;y<H;y+=s){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
 }
-function draw(){
-  ctx.clearRect(0,0,W,H);grid();
-  pts.forEach(p=>{
-    const dx=p.x-mpx,dy=p.y-mpy,dist=Math.sqrt(dx*dx+dy*dy);
-    if(dist<80){const f=(80-dist)/80;p.x+=dx/dist*f*2;p.y+=dy/dist*f*2}
+function animate(){
+  ctx.clearRect(0,0,W,H);drawGrid();
+  pts.forEach(function(p){
+    var dx=p.x-mpx,dy=p.y-mpy,dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<80){var f=(80-dist)/80;p.x+=dx/dist*f*2;p.y+=dy/dist*f*2}
     p.tick();p.draw();
   });
-  requestAnimationFrame(draw);
+  requestAnimationFrame(animate);
 }
-draw();
+animate();
  
 // SCROLL REVEAL
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rev').forEach(function(el){obs.observe(el)});
  
 // SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
     e.preventDefault();
-    const t=document.querySelector(a.getAttribute('href'));
+    var t=document.querySelector(a.getAttribute('href'));
     if(t)t.scrollIntoView({behavior:'smooth'});
   });
 });
  
 // 3D TILT
-document.querySelectorAll('.svc,.ccard,.pcard,.also-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=((e.clientX-r.left)/r.width-.5)*16;
-    const y=((e.clientY-r.top)/r.height-.5)*-16;
-    card.style.transform=`perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateY(-6px)`;
+document.querySelectorAll('.svc,.ccard,.pcard,.also-card').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var r=card.getBoundingClientRect();
+    var x=((e.clientX-r.left)/r.width-.5)*16;
+    var y=((e.clientY-r.top)/r.height-.5)*-16;
+    card.style.transform='perspective(700px) rotateX('+y+'deg) rotateY('+x+'deg) translateY(-6px)';
   });
-  card.addEventListener('mouseleave',()=>{card.style.transform=''});
+  card.addEventListener('mouseleave',function(){card.style.transform=''});
 });
  
-// TERMINAL REVEAL
-document.querySelectorAll('.tl').forEach((l,i)=>{
+// TERMINAL LINES
+document.querySelectorAll('.tl').forEach(function(l,i){
   l.style.opacity='0';
-  setTimeout(()=>{l.style.transition='opacity .3s';l.style.opacity='1'},1100+i*160);
+  setTimeout(function(){l.style.transition='opacity .3s';l.style.opacity='1'},1100+i*160);
 });
  
-// GLITCH SPEED ON HOVER
-const gn=document.querySelector('.glitch');
+// GLITCH
+var gn=document.querySelector('.glitch');
 if(gn){
-  gn.addEventListener('mouseenter',()=>{gn.style.animationDuration='.3s'});
-  gn.addEventListener('mouseleave',()=>{gn.style.animationDuration='5s'});
+  gn.addEventListener('mouseenter',function(){gn.style.animationDuration='.3s'});
+  gn.addEventListener('mouseleave',function(){gn.style.animationDuration='5s'});
 }
+ 
+// DISCORD WEBHOOK
+var HOOK='https://discord.com/api/webhooks/1481559993219026985/Xy1TqovnKUNbfuXi3fD0DdrnrqiEzgmnKsgcYJYzan8tZp1G7pGsjYr4MLFxWIIz6qiv';
+document.getElementById('submitBtn').addEventListener('click',function(){
+  var name=document.getElementById('fname').value.trim();
+  var contact=document.getElementById('fcontact').value.trim();
+  var desc=document.getElementById('fdesc').value.trim();
+  var msg=document.getElementById('formMsg');
+  var btn=document.getElementById('submitBtn');
+ 
+  if(!name||!contact||!desc){
+    msg.style.color='#ff003c';
+    msg.textContent='fill in all fields first.';
+    return;
+  }
+ 
+  btn.textContent='Sending...';
+  btn.style.opacity='.6';
+  btn.disabled=true;
+  msg.textContent='';
+ 
+  var payload={
+    username:'Commission Request',
+    embeds:[{
+      title:'New Commission Request',
+      color:52,
+      fields:[
+        {name:'Name',value:name,inline:true},
+        {name:'Contact',value:contact,inline:true},
+        {name:'Project',value:desc,inline:false}
+      ],
+      footer:{text:'abhay krishna portfolio — '+new Date().toUTCString()}
+    }]
+  };
+ 
+  fetch(HOOK,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(function(res){
+    if(res.ok||res.status===204){
+      msg.style.color='#00ffe7';
+      msg.textContent='sent. i\'ll get back to you soon.';
+      document.getElementById('fname').value='';
+      document.getElementById('fcontact').value='';
+      document.getElementById('fdesc').value='';
+      btn.textContent='Sent \u2713';
+    } else {
+      throw new Error('fail');
+    }
+  }).catch(function(){
+    msg.style.color='#ff003c';
+    msg.textContent='something went wrong. dm me on discord directly.';
+    btn.textContent='Send Commission Request \u2192';
+    btn.style.opacity='1';
+    btn.disabled=false;
+  });
+});
+ 
+})();
 </script>
 </body>
 </html>
